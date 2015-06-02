@@ -13,6 +13,7 @@ class rethinkdb::install inherits rethinkdb {
   }
 
   package { 'rethinkdb':
-    ensure => rethinkdb::package_ensure,
+    name   => $rethinkdb::package_name,
+    ensure => $rethinkdb::package_ensure,
   }
 }
