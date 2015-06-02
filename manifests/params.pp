@@ -7,4 +7,5 @@ class rethinkdb::params {
   $default_instance = true
   $instance_path = '/etc/rethinkdb/instances.d'
   $default_instance_config = {}
+  $manage_repo = true
 }

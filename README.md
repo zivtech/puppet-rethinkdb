@@ -1,8 +1,8 @@
 # Puppet RethinkDB
 
-Install [rethinkdb]() from the official package repo.  Currently only
-support debian based installs, patches welcome.  Allows you to configure
-an multiple instances.
+Install [rethinkdb](http://rethinkdb.com/) from the official package repo.
+Currently only support debian based installs, patches welcome.  Allows
+you to configure multiple instances.
 
 
 ## Basic Useage
@@ -19,7 +19,9 @@ include rethinkdb
 You can pass ini file configurations directly through the instance configuration
 by hassing a hash to the `conf` parameter.
 
-Below we install rethink *without* setting up an instance and then 
+Below we install rethink *without* setting up an instance and then define two separate
+instances. Please note that we are setting port offset in the configuration so that
+the default ports will not collide.
 
 ```` puppet
 class { 'rethinkdb':
@@ -35,6 +37,7 @@ rethinkdb::instance { 'foo':
 rethinkdb::instance { 'bar':
   conf => {
     'port-offset' => 2,
+    'cache-size'  => 2048,
   }
 }
 ````

@@ -7,6 +7,7 @@ class rethinkdb (
   $default_instance = $rethinkdb::params::default_instance,
   $default_instance_config = $rethinkdb::params::default_instance_config,
   $instance_path = $rethinkdb::params::instance_path,
+  $manage_repo = $rethinkdb::params::manage_repo
 ) inherits rethinkdb::params {
 
   validate_bool($manage_service)
