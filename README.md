@@ -7,8 +7,8 @@ you to configure multiple instances.
 
 ## Basic Useage
 
-Install rethink from source, configure the service to start by default,
-and configure a default instance called `rethinkdb`.
+Install rethink from official package repositories, configure the service
+to start by default, and configure a default instance called `rethinkdb`.
 
 ```` puppet
 include rethinkdb

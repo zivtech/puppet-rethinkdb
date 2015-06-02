@@ -1,6 +1,6 @@
 {
   "name": "zivtech-rethinkdb",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "zivtech",
   "summary": "Install and configure rethinkdb from official package sources.",
   "license": "Apache 2.0",
