@@ -1,5 +1,7 @@
 class rethinkdb::install inherits rethinkdb {
+
   include 'apt'
+
   apt::source { 'rethinkdb':
     comment  => 'The official rethinkdb debian repo.',
     location => 'http://download.rethinkdb.com/apt',
@@ -16,4 +18,5 @@ class rethinkdb::install inherits rethinkdb {
     name   => $rethinkdb::package_name,
     ensure => $rethinkdb::package_ensure,
   }
+
 }

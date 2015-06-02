@@ -5,6 +5,7 @@ class rethinkdb (
   $package_name = $rethinkdb::params::package_name,
   $service_name = $rethinkdb::params::service_name,
   $default_instance = $rethinkdb::params::default_instance,
+  $default_instance_config = $rethinkdb::params::default_instance_config,
   $instance_path = $rethinkdb::params::instance_path,
 ) inherits rethinkdb::params {
 
@@ -16,6 +17,8 @@ class rethinkdb (
     include rethinkdb::service
   }
   if ($default_instance) {
-    rethinkdb::instance { 'rethinkdb': }
+    rethinkdb::instance { 'rethinkdb':
+      conf => $default_instance_config,
+    }
   }
 }

@@ -6,4 +6,5 @@ class rethinkdb::params {
   $service_name = 'rethinkdb'
   $default_instance = true
   $instance_path = '/etc/rethinkdb/instances.d'
+  $default_instance_config = {}
 }
