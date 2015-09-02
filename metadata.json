@@ -9,6 +9,6 @@
   "issues_url": "https://github.com/zivtech/puppet-rethinkdb/issues",
   "dependencies": [
     {"name":"puppetlabs-stdlib","version_requirement":">= 1.0.0"},
-    {"name":"puppetlabs-apt","version_requirement":">= 0.9.0"}
+    {"name":"puppetlabs-apt","version_requirement":">= 2.0.0"}
   ]
 }
