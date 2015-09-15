@@ -19,6 +19,10 @@ class rethinkdb::install inherits rethinkdb {
   package { 'rethinkdb':
     name   => $rethinkdb::package_name,
     ensure => $rethinkdb::package_ensure,
+    require => [
+      Class['apt::update'],
+      Apt::Source['rethinkdb'],
+    ],
   }
 
 }
