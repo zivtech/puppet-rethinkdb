@@ -7,7 +7,7 @@ class rethinkdb::install inherits rethinkdb {
       comment  => 'The official rethinkdb debian repo.',
       location => 'http://download.rethinkdb.com/apt',
       key      => {
-        'id'     => '1614552E5765227AEC39EFCFA7E00EF33A8F2399',
+        'id'     => '3B87619DF812A63A8C1005C30742918E5C8DA04A',
         'source' => 'http://download.rethinkdb.com/apt/pubkey.gpg',
       },
       include => {
