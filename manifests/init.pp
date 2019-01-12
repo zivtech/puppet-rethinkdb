@@ -1,13 +1,14 @@
 class rethinkdb (
   $manage_service = $rethinkdb::params::manage_service,
   $service_ensure = $rethinkdb::params::service_ensure,
-  $package_ensure = $rethinkdb::params::package_ensure,
-  $package_name = $rethinkdb::params::package_name,
   $service_name = $rethinkdb::params::service_name,
+  $service_user = $rethinkdb::params::service_user,
+  $service_group = $rethinkdb::params::service_group,
   $default_instance = $rethinkdb::params::default_instance,
   $default_instance_config = $rethinkdb::params::default_instance_config,
   $instance_path = $rethinkdb::params::instance_path,
-  $manage_repo = $rethinkdb::params::manage_repo
+  $checksum = $::rethink::params::checksum,
+  $fetch_url = $::rethink::params::fetch_url,
 ) inherits rethinkdb::params {
 
   validate_bool($manage_service)
