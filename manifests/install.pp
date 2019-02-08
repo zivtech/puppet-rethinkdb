@@ -48,7 +48,7 @@ class rethinkdb::install inherits rethinkdb {
   }->
   file { '/usr/lib/systemd/system/rethinkdb@.service':
     ensure  => present,
-    content => "${module_name}/rethink.service.erb"),
+    content => "${module_name}/rethink.service.erb",
     owner   => $user,
     group   => $group,
     mode    => '0644',
