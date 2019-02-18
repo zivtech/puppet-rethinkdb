@@ -1,7 +1,7 @@
 class rethinkdb::params {
   $manage_service = true
   $service_ensure = 'running'
-  $service_name = 'rethinkdb'
+  $service_name = 'rethinkdb@rethinkdb.service'
   $service_user = 'rethinkdb'
   $service_group = 'rethinkdb'
   $default_instance = true

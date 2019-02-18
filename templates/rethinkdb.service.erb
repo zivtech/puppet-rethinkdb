@@ -2,8 +2,8 @@
 Description=RethinkDB database server for instance '%i'
 
 [Service]
-User=<%= @user %>]
-Group=<%= @group %>]
+User=<%= @user %>
+Group=<%= @group %>
 ExecStart=/usr/bin/rethinkdb serve --config-file /etc/rethinkdb/instances.d/%i.conf
 KillMode=process
 PrivateTmp=true

@@ -11,6 +11,18 @@ class rethinkdb::install inherits rethinkdb {
     home       => '/var/lib/rethinkdb',
     membership => 'minimum',
   }->
+  file { '/etc/rethinkdb':
+    owner  => $user,
+    group  => $group,
+    mode   => '0755',
+    ensure => 'directory',
+  }->
+  file { $::rethinkdb::instance_path:
+    owner  => $user,
+    group  => $group,
+    mode   => '0755',
+    ensure => 'directory',
+  }->
   file { '/var/lib/rethinkdb':
     owner  => $user,
     group  => $group,
@@ -22,13 +34,13 @@ class rethinkdb::install inherits rethinkdb {
     # Currently, cache_dir doesn't work with source_hash.
     # https://github.com/voxpupuli/puppet-wget/issues/87
     #cache_dir   => '/var/cache/rethinkdb',
-    unless      => "/usr/bin/test /usr/bin/rethinkdb",
+    unless      => "/usr/bin/test -f /usr/bin/rethinkdb",
     source_hash => $checksum,
     timeout     => 0,
     verbose     => false,
   }->
-  exec { "uncompress ${fetch_binary_url}":
-    command => "/bin/tar xzf ${fetch_binary_url}",
+  exec { "uncompress /tmp/rethinkdb.tgz":
+    command => "/bin/tar xzf /tmp/rethinkdb.tgz",
     cwd     => '/tmp',
     creates => "/tmp/rethinkdb",
   }->
@@ -46,9 +58,9 @@ class rethinkdb::install inherits rethinkdb {
     group   => $group,
     mode    => '0644',
   }->
-  file { '/usr/lib/systemd/system/rethinkdb@.service':
+  file { '/lib/systemd/system/rethinkdb@.service':
     ensure  => present,
-    content => "${module_name}/rethink.service.erb",
+    content => template("${module_name}/rethinkdb.service.erb"),
     owner   => $user,
     group   => $group,
     mode    => '0644',
