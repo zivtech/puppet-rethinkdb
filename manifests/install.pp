@@ -4,6 +4,7 @@ class rethinkdb::install inherits rethinkdb {
   $group = $::rethinkdb::service_group
   $checksum = $::rethinkdb::checksum
   $fetch_url = $::rethinkdb::fetch_url
+  $instance_path = $::rethinkdb::instance_path
 
   user { $user:
     comment    => 'The user used to run rethinkdb.',
@@ -12,6 +13,18 @@ class rethinkdb::install inherits rethinkdb {
     membership => 'minimum',
   }->
   file { '/var/lib/rethinkdb':
+    owner  => $user,
+    group  => $group,
+    mode   => '0755',
+    ensure => 'directory',
+  }->
+  file { '/etc/rethinkdb':
+    owner  => $user,
+    group  => $group,
+    mode   => '0755',
+    ensure => 'directory',
+  }->
+  file { $instance_path:
     owner  => $user,
     group  => $group,
     mode   => '0755',
