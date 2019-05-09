@@ -12,12 +12,6 @@ class rethinkdb::install inherits rethinkdb {
     home       => '/var/lib/rethinkdb',
     membership => 'minimum',
   }->
-  file { '/var/lib/rethinkdb':
-    owner  => $user,
-    group  => $group,
-    mode   => '0755',
-    ensure => 'directory',
-  }->
   file { '/etc/rethinkdb':
     owner  => $user,
     group  => $group,
