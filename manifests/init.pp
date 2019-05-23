@@ -7,6 +7,7 @@ class rethinkdb (
   $default_instance = $rethinkdb::params::default_instance,
   $default_instance_config = $rethinkdb::params::default_instance_config,
   $instance_path = $rethinkdb::params::instance_path,
+  $install_packages = $rethinkdb::params::install_packages,
   $checksum = $::rethink::params::checksum,
   $fetch_url = $::rethink::params::fetch_url,
 ) inherits rethinkdb::params {

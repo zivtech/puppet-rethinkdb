@@ -6,6 +6,7 @@ class rethinkdb::params {
   $service_group = 'rethinkdb'
   $default_instance = true
   $instance_path = '/etc/rethinkdb/instances.d'
+  $install_packages = true,
   $checksum = '2c3ca9deddd2f1867ad472dbba1c7986'
   $fetch_url = null
   $default_instance_config = {}

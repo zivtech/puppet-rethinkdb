@@ -5,6 +5,11 @@ class rethinkdb::install inherits rethinkdb {
   $checksum = $::rethinkdb::checksum
   $fetch_url = $::rethinkdb::fetch_url
   $instance_path = $::rethinkdb::instance_path
+  $install_packages = $::rethinkdb::install_packages
+
+  if ($install_packages) {
+    include rethinkdb::packages
+  }
 
   user { $user:
     comment    => 'The user used to run rethinkdb.',
