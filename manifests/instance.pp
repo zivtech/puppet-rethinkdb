@@ -5,6 +5,9 @@ define rethinkdb::instance (
 ) {
 
   validate_hash($conf)
+  $user = $::rethinkdb::service_user
+  $group = $::rethinkdb::service_group
+  $path = $conf[directory]
 
   file { "rethinkdb-instance-${name}":
     path    => "${rethinkdb::instance_path}/${name}.conf",
@@ -12,5 +15,9 @@ define rethinkdb::instance (
     ensure  => $ensure,
     notify  => Service[$rethinkdb::service_name],
     require => Class['rethinkdb::install'],
+  }
+
+  exec {"/usr/bin/rethinkdb create -d ${path}; /bin/chown ${user}:${group} -R ${path}":
+    creates => $path,
   }
 }
